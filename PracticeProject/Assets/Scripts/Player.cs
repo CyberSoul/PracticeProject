@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class SomeDataClass
+{
+    public int m_id;
+    public string m_name;
+    public string m_someData;
+}
+
 public class Player : MonoBehaviour
 {
     [SerializeField] float m_speed;
@@ -11,6 +19,8 @@ public class Player : MonoBehaviour
     [SerializeField] bool m_isLookAt;
     [SerializeField] bool m_isSlerp;
     [SerializeField] GameObject m_target;
+
+    [SerializeField] SomeDataClass[] m_arrayWithSomeData;
 
     //[SerializeField] bool m_isSpeedUp;
 
