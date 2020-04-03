@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] Player m_player;
+
     [SerializeField] GameObject m_pausedView;
+
     [SerializeField] Toggle m_lookAt;
     [SerializeField] Toggle m_slerp;
-    [SerializeField] Player m_player;
 
     // Start is called before the first frame update
     void Start()

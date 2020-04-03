@@ -5,11 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float m_speed;
+    [SerializeField] float m_maxSpeed = 10;
     [SerializeField] float m_rotationSpeed;
 
     [SerializeField] bool m_isLookAt;
     [SerializeField] bool m_isSlerp;
     [SerializeField] GameObject m_target;
+
+    //[SerializeField] bool m_isSpeedUp;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class Player : MonoBehaviour
         get => m_isSlerp;
         set { m_isSlerp = value; }
     }
+    public bool SpeedUp { get; set; }
 
     // Update is called once per frame
     void Update()
@@ -72,6 +76,25 @@ public class Player : MonoBehaviour
             {
                 rigidbody.AddExplosionForce(500, transform.position, 1);
             }
+        }
+    }
+
+    public void SpeedUpFunction()
+    {
+        StartCoroutine(speedRoutine());
+    }
+
+    public void ResetSpeed( int newSpeed)
+    {
+        m_speed = newSpeed;
+    }
+
+    IEnumerator speedRoutine()
+    {
+        while (m_speed < m_maxSpeed)
+        {
+            yield return new WaitForSeconds(1.0f);
+            m_speed += 1;
         }
     }
 }
