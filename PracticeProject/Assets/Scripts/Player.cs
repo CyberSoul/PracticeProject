@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player: MonoBehaviour
 {
     [SerializeField] float m_speed;
+    [SerializeField] float m_rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,9 @@ public class Player: MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vecrtical = Input.GetAxis("Vertical");
-
+        float rotation = Input.GetAxis("Rotation");
+        
         transform.Translate( new Vector3(horizontal, 0, vecrtical) * m_speed * Time.deltaTime);
+        transform.Rotate(Vector3.up, rotation * m_rotationSpeed * Time.deltaTime);
     }
 }
