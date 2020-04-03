@@ -16,11 +16,35 @@ public class Player: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MovementUpdate();
+
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            TestExplodeAroundMe();
+        }
+    }
+
+    void MovementUpdate()
+    {
         float horizontal = Input.GetAxis("Horizontal");
         float vecrtical = Input.GetAxis("Vertical");
         float rotation = Input.GetAxis("Rotation");
-        
-        transform.Translate( new Vector3(horizontal, 0, vecrtical) * m_speed * Time.deltaTime);
+
+        transform.Translate(new Vector3(horizontal, 0, vecrtical) * m_speed * Time.deltaTime);
         transform.Rotate(Vector3.up, rotation * m_rotationSpeed * Time.deltaTime);
+    }
+
+    void TestExplodeAroundMe()
+    {
+        var boxes = GameObject.FindGameObjectsWithTag("Box");
+        foreach (var box in boxes)
+        {
+            var rigidbody = box.GetComponent<Rigidbody>();
+            if (rigidbody)
+            {
+                rigidbody.AddExplosionForce(500, transform.position, 1);
+            }
+        }
     }
 }
