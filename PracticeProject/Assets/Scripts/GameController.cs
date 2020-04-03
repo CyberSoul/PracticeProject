@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] GameObject m_pausedView;
     [SerializeField] GameObject m_player;
+    [SerializeField] UIController m_uiController;
 
     float m_lastTimeScale;
 
@@ -61,13 +60,13 @@ public class GameController : MonoBehaviour
     {
         m_lastTimeScale = Time.timeScale;
         Time.timeScale = 0;
-        m_pausedView.active = true;
+        m_uiController.ShowPauseView(true);
     }
 
     public void UnpauseGame()
     {
         Time.timeScale = m_lastTimeScale;
-        m_pausedView.active = false;
+        m_uiController.ShowPauseView(false);
     }
 
     public void LookAt(GameObject a_target)
@@ -76,4 +75,12 @@ public class GameController : MonoBehaviour
         Vector3 distance = a_target.transform.position - a_watcher.transform.position;
         a_watcher.transform.rotation = Quaternion.LookRotation(distance);
     }
+    public void Slerp(GameObject a_target)
+    {
+        GameObject a_watcher = m_player;
+        Vector3 distance = a_target.transform.position - a_watcher.transform.position;
+        //a_watcher.transform.rotation = Quaternion.Sler(distance);
+    }
+
+
 }

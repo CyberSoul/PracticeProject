@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player: MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] float m_speed;
     [SerializeField] float m_rotationSpeed;
 
+    [SerializeField] bool m_isLookAt;
+    [SerializeField] bool m_isSlerp;
+    [SerializeField] GameObject m_target;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
+    }
+
+    public bool LookAt
+    {
+        get => m_isLookAt;
+        set { m_isLookAt = value; }
+    }
+    public bool Slerp {
+        get => m_isSlerp;
+        set { m_isSlerp = value; }
     }
 
     // Update is called once per frame
@@ -18,13 +32,26 @@ public class Player: MonoBehaviour
     {
         MovementUpdate();
 
-
         if (Input.GetButtonDown("Fire1"))
         {
             TestExplodeAroundMe();
         }
-    }
 
+        if (m_isLookAt)
+        {
+            Vector3 distance = m_target.transform.position - transform.position;
+            transform.rotation = Quaternion.LookRotation(distance);
+            Debug.DrawRay(transform.position, distance, Color.green);
+        }
+        if (m_isSlerp)
+        {
+            Vector3 distance = m_target.transform.position - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(distance);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime);
+            Debug.DrawRay(transform.position, distance, Color.blue);
+        }
+    }
+    
     void MovementUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
