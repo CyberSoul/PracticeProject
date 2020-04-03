@@ -8,6 +8,20 @@ public class SomeDataClass
     public int m_id;
     public string m_name;
     public string m_someData;
+
+    public static string s_someStaticData;
+
+    public SomeDataClass()
+    {
+        m_id = 0;
+        m_name = "Init Name";
+        m_someData = "Some init data";
+    }
+
+    static SomeDataClass()
+    {
+        s_someStaticData = "Static init Data";
+    }
 }
 
 public class Player : MonoBehaviour
