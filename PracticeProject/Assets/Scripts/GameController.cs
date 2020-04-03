@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject m_pausedView;
+    [SerializeField] GameObject m_player;
 
     float m_lastTimeScale;
 
@@ -67,5 +68,12 @@ public class GameController : MonoBehaviour
     {
         Time.timeScale = m_lastTimeScale;
         m_pausedView.active = false;
+    }
+
+    public void LookAt(GameObject a_target)
+    {
+        GameObject a_watcher = m_player;
+        Vector3 distance = a_target.transform.position - a_watcher.transform.position;
+        a_watcher.transform.rotation = Quaternion.LookRotation(distance);
     }
 }
