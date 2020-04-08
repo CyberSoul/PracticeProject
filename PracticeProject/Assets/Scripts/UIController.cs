@@ -32,7 +32,15 @@ public class UIController : MonoBehaviour
                 m_slerp.isOn = false;
         });
 
+    }
+
+    private void OnEnable()
+    {
         m_player.OnMove += UpdatePlayerPosition;
+    }
+    private void OnDisable()
+    {
+        m_player.OnMove -= UpdatePlayerPosition;
     }
 
     // Update is called once per frame
