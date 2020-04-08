@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
 {
     public Action<Vector3> OnMove;
 
+    public Func<int, string> SomeFunc;// delegate string SomeDelegate(int); SomeDelegate someFunc;
+
     [SerializeField] float m_speed;
     [SerializeField] float m_maxSpeed = 10;
     [SerializeField] float m_rotationSpeed;
