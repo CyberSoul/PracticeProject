@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class SomeDataClass
 
 public class Player : MonoBehaviour
 {
+    public Action<Vector3> OnMove;
+
     [SerializeField] float m_speed;
     [SerializeField] float m_maxSpeed = 10;
     [SerializeField] float m_rotationSpeed;
@@ -88,6 +91,11 @@ public class Player : MonoBehaviour
 
         transform.Translate(new Vector3(horizontal, 0, vecrtical) * m_speed * Time.deltaTime);
         transform.Rotate(Vector3.up, rotation * m_rotationSpeed * Time.deltaTime);
+
+        if (OnMove != null)
+        {
+            OnMove(transform.position);
+        }
     }
 
     void TestExplodeAroundMe()

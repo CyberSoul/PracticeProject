@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
 
     [SerializeField] Toggle m_lookAt;
     [SerializeField] Toggle m_slerp;
+    [SerializeField] Text m_txtPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,8 @@ public class UIController : MonoBehaviour
             if (On)
                 m_slerp.isOn = false;
         });
+
+        m_player.OnMove += UpdatePlayerPosition;
     }
 
     // Update is called once per frame
@@ -49,5 +52,10 @@ public class UIController : MonoBehaviour
         {
             onChangeColorClick();
         }
+    }
+
+    protected void UpdatePlayerPosition(Vector3 a_pos)
+    {
+        m_txtPosition.text = $"Pos: {a_pos.x.ToString("0.00")}; {a_pos.y.ToString("0.00")}; {a_pos.z.ToString("0.00")}";
     }
 }
