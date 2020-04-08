@@ -7,13 +7,23 @@ public class Box : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIController.onChangeColorClick += ApplyRandColor;
+        //UIController.onChangeColorClick += ApplyRandColor;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        UIController.onChangeColorClick += ApplyRandColor;
+    }
+
+    private void OnDisable()
+    {
+        UIController.onChangeColorClick -= ApplyRandColor;
     }
 
     void ApplyRandColor()
