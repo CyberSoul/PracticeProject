@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public delegate void ChangeColorClick();
+    public static event ChangeColorClick onChangeColorClick;
+
     [SerializeField] Player m_player;
 
     [SerializeField] GameObject m_pausedView;
@@ -38,5 +41,13 @@ public class UIController : MonoBehaviour
     public void ShowPauseView(bool a_isEnable)
     {
         m_pausedView.active = a_isEnable;
+    }
+
+    public void ChangeColorForCubes()
+    {
+        if (onChangeColorClick != null)
+        {
+            onChangeColorClick();
+        }
     }
 }
