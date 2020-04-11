@@ -16,6 +16,10 @@ public class LinqExample : MonoBehaviour
         var result3 = m_someStringData.Where(data=> data.Length > m_searchData.Length);
         Debug.Log($"Our search result: {isContainSearch}; result2: {search2}");
         Debug.Log($"Words with more symbols than \"{m_searchData}\"");
+
+        var sortedData = m_someStringData.OrderByDescending(data => data);
+        var sortedData2 = m_someStringData.OrderByDescending(data => data).Reverse();
+        var sortedData3 = m_someStringData.Where(data => data.Length > m_searchData.Length).OrderByDescending(data => data);
         foreach (var data in result3)
         {
             Debug.Log(data);
