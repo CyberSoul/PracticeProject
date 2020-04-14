@@ -24,6 +24,14 @@ public class LinqExample : MonoBehaviour
         {
             Debug.Log(data);
         }
+
+        Debug.Log("DataQuery:   ");
+        var dataQuery = from data in m_someStringData where data.Length > 3 select data;
+        var dataQuery2 = m_someStringData.Where(data => data.Length > 3); //Equal to dataQuery.
+        foreach (var data in dataQuery)
+        {
+            Debug.Log(data);
+        }
     }
 
     // Update is called once per frame
