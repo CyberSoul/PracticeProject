@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     [SerializeField] bool m_isSlerp;
     [SerializeField] GameObject m_target;
 
+    [SerializeField] GameObject m_firePosition;
+
     [SerializeField] SomeDataClass[] m_arrayWithSomeData;
 
     //[SerializeField] bool m_isSpeedUp;
@@ -64,8 +66,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         MovementUpdate();
-
+        
         if (Input.GetButtonDown("Fire1"))
+        {
+            Attack();
+        }
+
+        if (Input.GetButtonDown("Fire2"))
         {
             TestExplodeAroundMe();
         }
@@ -130,5 +137,12 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(1.0f);
             m_speed += 1;
         }
+    }
+
+    public void Attack()
+    {
+        var bullet = PoolManager.Instance.RequestBullet();
+        bullet.transform.position = m_firePosition.transform.position;
+        bullet.transform.rotation = transform.rotation;
     }
 }
