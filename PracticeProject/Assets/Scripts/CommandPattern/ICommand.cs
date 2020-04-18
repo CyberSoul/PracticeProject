@@ -1,5 +1,4 @@
-﻿
-public interface ICommand
+﻿public interface ICommand
 {
     void Execute();
     void Undue();
