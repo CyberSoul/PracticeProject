@@ -62,6 +62,22 @@ public class UIController : MonoBehaviour
         }
     }
 
+    public void Rewind()
+    {
+        CommandManager.Instance.Rewind();
+    }
+
+    public void PlayCommands()
+    {
+        GameObject[] boxes = GameObject.FindGameObjectsWithTag("Box");
+        foreach ( var box in boxes)
+        {
+            box.GetComponent<MeshRenderer>().material.color = Color.white;
+        }
+
+        CommandManager.Instance.Play();
+    }
+
     protected void UpdatePlayerPosition(Vector3 a_pos)
     {
         m_txtPosition.text = $"Pos: {a_pos.x.ToString("0.00")}; {a_pos.y.ToString("0.00")}; {a_pos.z.ToString("0.00")}";

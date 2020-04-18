@@ -28,6 +28,9 @@ public class Box : MonoBehaviour
 
     void ApplyRandColor()
     {
-        GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0.0f,1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
+        RecolorCommand recolor = new RecolorCommand(this.gameObject, new Color( Random.value, Random.value, Random.value));
+        recolor.Execute();
+
+        CommandManager.Instance.AddCommand(recolor);
     }
 }
