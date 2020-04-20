@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] SomeDataClass[] m_arrayWithSomeData;
 
+
+    // Events call order: Awake => OnEnable => Start => Update => OnDisable => OnDestroy
+
     //[SerializeField] bool m_isSpeedUp;
 
     // Start is called before the first frame update
