@@ -198,6 +198,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 15313307}
   m_CullTransparentMesh: 0
+--- !u!1 &32973100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4755492837713322929, guid: 70e393048937e4f4cbe02d8b2341d461,
+    type: 3}
+  m_PrefabInstance: {fileID: 687831067}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &83869946
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +781,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398990546}
   m_CullTransparentMesh: 0
+--- !u!1 &469751932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4755492837713322929, guid: 70e393048937e4f4cbe02d8b2341d461,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275556913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &488939644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3041,10 +3053,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_testObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2139884476}
+  - {fileID: 32973100}
+  - {fileID: 469751932}
+  - {fileID: 1964938635}
   m_timeDelay: 1
 --- !u!4 &1590351569
 Transform:
@@ -3660,6 +3672,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913826490}
   m_CullTransparentMesh: 0
+--- !u!1 &1964938635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4755492837713322929, guid: 70e393048937e4f4cbe02d8b2341d461,
+    type: 3}
+  m_PrefabInstance: {fileID: 1765406783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2026608161
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,6 +3943,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4755492837713322928, guid: 70e393048937e4f4cbe02d8b2341d461,
     type: 3}
   m_PrefabInstance: {fileID: 4755492837338595987}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139884476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4755492837713322929, guid: 70e393048937e4f4cbe02d8b2341d461,
+    type: 3}
+  m_PrefabInstance: {fileID: 1802415421}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4755492837338595987
 PrefabInstance:
